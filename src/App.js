@@ -1,25 +1,57 @@
 import logo from './logo.svg';
 import './App.css';
+import {BrowserRouter,Routes,Route}from "react-router-dom";
+import { useState, useEffect } from 'react';
+import Home from './Pages/Home';
+import Eventos from './Pages/Eventos';
+import EventId from './Pages/EventId';
+import Marketing from './Pages/Marketing';
+import Login from './Pages/Login';
+import Register from './Pages/Register';
+import Empresa from './Pages/Empresa';
+import Dashboard from './Dasbard-Components/Dashboard';
+import Profile from './Pages/Profile';
+import Ticket from './Pages/Ticket.js'
 
 function App() {
+
+  const [sidebar, setSidebar] = useState(false)
+
+  const [newuser, setnewUser] = useState({
+    logo:"",
+    name:"",
+    empresa:"",
+    user:"",
+    email:"",
+    cellphone:"",
+    cpf:"",
+    password:"",
+    url:"",
+})
+
+const [ticket, setTicket] = useState([])
+
+
+const [user, setUser] = useState()
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <BrowserRouter>
+    <Routes>
+      <Route path="/" element={<Home user={user} setUser={setUser} />}/>
+      <Route path="/eventos" element={<Eventos user={user} />}/>
+      <Route path="/eventos/:idEvent" element={<EventId user={user} ticket={ticket} setTicket={setTicket} />}/>
+      <Route path="/create-event" element={<Marketing user={user} />}/>
+      <Route path="/login" element={<Login user={user} setUser={setUser} />}/>
+      <Route path="/register" element={<Register user={user} setUser={setUser} newuser={newuser} setnewUser={setnewUser} />}/>
+      <Route path="/register/empresa" element={<Empresa user={user} newuser={newuser} setnewUser={setnewUser} />}/>
+      <Route path="/profile" element={<Profile user={user} setUser={setUser} />}/>
+      <Route path="/purchase" element={<Ticket user={user} setUser={setUser} ticket={ticket} setTicket={setTicket} />}/>
+      {/*UX para empresa*/}
+      <Route path="/admin/:id" element={<Dashboard />}/>
+    </Routes>
+  </BrowserRouter>
+    );
 }
 
 export default App;

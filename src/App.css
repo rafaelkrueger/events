@@ -1,38 +1,664 @@
-.App {
-  text-align: center;
+::-webkit-scrollbar {
+  width: 10px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+strong{
+  color:rgb(35, 35, 144);
+  font-weight: 600;
+}
+
+
+
+#nav-component{
+  color:white;
+  padding:2%;
+  position: fixed;
+  top:0%;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  width: 100%;
+  height: 5%;
+  background-color: rgb(241, 241, 241);
+  box-shadow: 1px 1px 20px rgba(0,0,0,0.2);
+  z-index:1000000;
+}
+
+#nav-link{
+  color:rgba(0,0,0,0.6);
+}
+
+
+
+/*Carousel component*/
+
+#carousel-component{
+  background-color: rgba(0,0,0,0.03);  
+  height: 20%;
+  width: 70%;
+  align-self: center;
+  margin-top: 10%;
+  margin-left: 15%;
+  margin-right: 20%;
+  border-radius: 20px;
+  margin-bottom: 3%;
+}
+
+#carousel-image{
+  width: 100%;
+  border-radius: 20px;
+}
+
+
+#search-carousel{
+  background-color: rgba(0,0,0,0.03);  height: 20%;
+  width: 70%;
+  align-self: center;
+  margin-top: 2%;
+  margin-left: 15%;
+  margin-right: 20%;
+  border-radius: 20px;
+}
+
+#span-input-search{
+  margin-left: 18%;
+  margin-top: 1.9%;
+  position: absolute;
+}
+
+#search-event{
+  border-radius: 10px;
+  border: 0.3px solid rgba(0,0,0,0.15);
+  width: 50%;
+  margin-right: 10%;
+  margin-left: 25%;
+  padding-top: 0.7%;
+  padding-left: 4%; 
+  padding-bottom: 0.7%;
+  margin-top: 2%;
+  margin-bottom: 2%;
+}
+
+#select-event{ 
+  padding-left: 5%; 
+  padding-right: 5%;
+  margin-top: 2%;
+  margin-bottom: 2%;
+  font-weight: 400;
+}
+
+/*Events cards*/
+
+.event-component{
+  padding-top: 3%;
+  width: 70%;
+  margin: auto;
+}
+
+.event-cards{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#event-card-element{
+  max-width:31%;
+  min-height: 30%;
+  max-height: 30%;
+  margin: 7px;
+  box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.3);
+}
+
+#event-card-image{
+  min-width:100%;
+  max-width:100%;
+  min-height:40%;
+  max-height:40%;
+}
+
+#event-card-title{
+  color:rgba(0,0,0,0.7);
+}
+
+#event-card-description{
+  color:rgba(0,0,0,0.4);
+}
+
+#event-card-button{
+  margin-top: 5%;
+  margin-left: 30%;
+  border-radius: 10px;
+  font-weight: 100;
+  font-size: 10pt;
+  padding-right: 10%;
+  padding-left: 10%;
+  padding-top: 2%;
+  padding-bottom: 2%;
+  border:0px white solid;
+  color: #888;
+  text-decoration: none;
+  box-shadow: 1px 1px 10px rgba(0,0,0,0.5);
+}
+
+#round-cards-component{
+  margin-top: 7%;
+}
+
+#round-card-slider{
+  width: 30%;
+}
+#round-card-image{
+  width: 20%;
+  border-radius: 50px;
+}
+
+/*information component*/
+.information-component{
+  height: 20%;
+  width: 70%;
+  align-self: center;
+  margin-top: 2%;
+  margin-left: 12%;
+  margin-right: 20%;
+  border-radius: 20px;
+  padding:3%;
+}
+
+#information-grid{
+  display: flex;
+}
+
+#ticket-infomation{
+  margin-right: 2%;
+  color:rgb(34, 34, 122);
+}
+
+.information-title{
+  color:rgb(34, 34, 122);
+  font-size: 19pt;
+}
+
+.information-description{
+  color: rgba(0,0,0,0.5);
+  text-align: justify;
+}
+
+#information-button{
+  margin-top: 5%;
+  margin-left: 35%;
+  background-color: rgb(34, 34, 122);
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.people-dancing{
+  width: 100%;
+  align-self: center;
+  margin-left: 10%;
+  margin-top:5%;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+/*login component*/
+
+
+#login-form{
+  width:90%;
+  color: white;
+  background-color: rgba(255,255,255,0.3);
+  padding: 4%;
+  box-shadow: 1px 1px 20px white;
+  margin-top: 5%;
+  margin-left: 10%;
+}
+.input-login{
+  background-color: rgba(0,0,0,0);
+  border: 0px white solid;
+  border-bottom: 0.3px black solid;
+  padding-bottom: 1%;
+  width:60%;
+  margin-bottom: 5%;
+
+}
+.user-input{
+  color:rgba(0,0,0,0.3);
+}
+.password-input{
+  color:rgba(0,0,0,0.3);
+}
+#login-button{
+  margin-left: 15%;
+  margin-bottom: 10%;
+}
+
+.login-links{
+  text-align: center;
+  color: rgba(0,0,0,0.3);
+  text-decoration: none;
+  margin-left: 18%;
+  margin-bottom: 15%;
+}
+
+.eventos{
+  margin-top:10%;
+  margin-left: 5%;
+}
+
+.eventos-title{
+  color:rgba(0,0,0,0.8);
+  padding-bottom: 1.4%;
+  text-align: center;
+  margin-right: 15%;
+  margin-left: 10%;
+
+}
+
+.eventos-list{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-top: 5%;
+}
+
+.eventos-image{
+  width: 100%;
+  height: 50%;
+}
+
+
+.marketing{
+  margin-top: 10%;
+  margin-left: 15%;
+  margin-right: 15%;
+  text-align: center;
+}
+
+#marketing-top{
+  margin-bottom: 2%;
+}
+
+#marketing-description{
+  color:rgba(0,0,0.2);
+}
+
+#marketing-button{
+  background-color: rgb(19, 19, 129);
+  margin-top: 2%;
+  color:white;  
+}
+
+
+.register{
+  margin-top: 2%;
+  height: 100%;
+  margin-bottom: -7%;
+}
+
+#register-input{
+  margin-left: 5%;
+  margin-right: 5%;
+  padding-top: 3%;
+  text-align: center;
+}
+
+#fundo-register-description{
+  position: absolute;
+  background-color: rgba(0,0,0,0.8);
+  color:white;
+  padding-top:10%;
+  padding-left:10%;
+  margin-top: -4%;
+  width: 100%;
+  height: 100%;
+}
+
+#register-image{
+  width: 70%;
+  min-width: 66%;
+}
+
+#fundo-register{
+  width: 100%;
+  box-shadow: 3px 3px 20px rgba(0,0,0,0.7);
+}
+
+.fundo-register-title{
+  margin-top: 5%;
+}
+
+.fundo-register-description-inside{
+  margin-top: 1%;
+  margin-bottom: 3%;
+  color: rgba(255,255,255,0.5);
+}
+
+
+.fundo-register-link{
+  text-decoration: none;
+  padding:0.8%;
+  color:white;
+  border-radius: 5px;
+  background-color: rgb(39, 39, 110);
+}
+
+
+#button-register{
+  display: flex;
+  flex-direction: column;
+}
+
+.terms-acceptance{
+  font-size: 9pt;
+  color:rgba(0,0,0,0.3);
+}
+
+.empresa{
+  margin-left: 10%;
+  margin-top: 10%;
+  margin-right: 15%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#start-btn{
+  margin-top: 5%;
+  margin-left: 35%;
+}
+
+#image-empresa{
+  width: 35%;
+  margin-left: 32%;
+  margin-top: -4%;
+}
+
+.empresa-title{
+  color: rgb(17, 17, 115);
+  margin-bottom: 8%;
+}
+
+/*Event id*/
+.event-id{
+  margin:10%;
+}
+
+#banner-event-id{
+  min-width: 70%;
+  border-radius: 10px;
+}
+
+#banner-event-id-image{
+  width:100%;
+  height: 100%;
+  border-radius: 10px;
+}
+
+#ticket-event-id{
+ min-width: 30%;
+ background-color: whitesmoke;
+ border-radius: 10px;
+ padding:3%;
+}
+
+#event-id-description{
+  color:rgba(0,0,0,0.7);
+}
+
+/*buy modal*/
+
+.buy-modal{
+  background-color: rgba(0,0,0,0.2) ;
+  margin-left: -10.5%;
+  height: 100%;
+  top:0px;
+  position: fixed;
+  z-index: 1000;
+  width: 100%;
+}
+
+
+.buy-modal-content{
+  text-align: center;
+  background-color: rgb(230,230,230);
+  position: fixed;
+  margin: 20%;
+  margin-top: 8%;
+  margin-left: 20%;
+  border-radius: 20px;
+  padding: 2% 5% 2% 5% ;
+  width: 60%;
+  box-shadow: 1px 1px 30px rgba(0,0,0,0.4);
+  color: rgba(0,0,0,0.7);
+}
+
+.buy-modal-list{
+  display: flex;
+  flex-direction: column;
+  margin-top: 8%;
+}
+
+.buy-modal-sub{
+  color: black;
+  margin-bottom: -0%;
+}
+
+.buy-modal-list-item{
+  display: flex;
+  flex-direction: row;
+  border-bottom: 0.3px rgba(0,0,0,0.1) solid;
+}
+
+.buy-modal-list-item-left{
+  margin-right: 38%;
+  min-width: 50%;
+  text-align: center;
+}
+
+#buy-modal-ticket-number{
+  width: 7%;
+  height: 7%;
+  margin-left:35%;
+  margin-bottom: 7%;
+  margin-top: 2%;
+  min-width: 50%;
+  text-align: center;
+
+}
+
+.buy-modal-price{
+  display: flex;
+  justify-content: space-around;
+  margin-top: 10%;
+  margin-bottom: 5%;
+}
+
+
+.buy-modal-price-tickets{
+  display: flex;
+  flex-direction: column;
+}
+
+
+.buy-modal-price-total{
+  display: flex;
+  flex-direction: column;
+}
+
+
+
+/*profile page*/
+
+.profile{
+  margin:20%;
+}
+
+.purchase{
+  margin: 15%;
+}
+
+
+/*Footer*/
+#footer-style{
+  background-color: rgb(241, 241, 241);
+  box-shadow: 1px 1px 20px rgba(0,0,0,0.2);
+  padding:50px;
+  margin-top:7%;
+  color:rgba(0,0,0,0.6);
+}
+.footer-title{
+  color:rgba(0,0,0,0.9);
+}
+
+  
+
+@media (max-width:600px){
+  #nav-component{
+
   }
-  to {
-    transform: rotate(360deg);
+  #navbar-content-responsive{
+    display: block;
+    background-color: rgb(241, 241, 241);
+    width: 100%;
+    padding-left: 10%;
+    padding-right: 10%;
+    margin-left: -7%;
+    margin-right: -10%;
+  }
+  #nav-component{
+    height:10%;
+  }
+  #carousel-component{
+    margin-top: 35%;
+    width:90%;
+    margin-left: 5%;
+    margin-bottom: 20%;
+  }
+  #search-carousel{
+    display: flex;
+    width: 90%;
+    margin-left: 5%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    background-color: white;
+    margin-top: 13%;
+    width: 90%;
+    background-color: rgb(230, 230, 230);
+  }
+  #span-input-search{
+    margin-left: 2%;
+    margin-bottom: -0.4%;
+  }
+  .event-component{
+    justify-content: space-around;
+    width: 100%;
+    margin-left: -6%;
+    margin-bottom: 10%;
+  }
+  .event-cards{
+    flex-direction: column;
+    width: 100%;
+    margin-left: 3%;
+    align-items: center;
+  }
+  #event-card-element{
+    width: 100%;
+    margin-bottom: 7%;
+    min-width: 250px;
+  }
+  #information-grid{
+    flex-direction: column;
+  }
+  .information-title{
+    font-size: 12pt;
+    text-align: center;
+  }
+  .information-description{
+    font-size: 10pt;
+  }
+  #information-button{
+    font-size: 10pt;
+    margin-left: 32%;
+
+  }
+  .people-dancing{
+    margin-left: 0%;
+    margin-top: 10%;
+  }
+  .marketing-title{
+    margin-top: 55%;
+    margin-bottom: 25%;
+    margin-right: 3%;
+  }
+  .login-background{
+    display: none;
+  }
+  #login-form{
+    position: relative;
+    width: 100%;
+    background-color: rgba(255,255,255,0.7);
+    margin-top: 35%;
+    margin-bottom: 30%;
+    flex-direction: column;
+    box-shadow: 0px 0px 0px white;
+    text-align: center;
+    margin-left: 0%;    
+  }
+  #login-button{
+    margin-left: 5%;
+    margin-top: 8%;
+    width: 67%;
+  }
+  .user-input{
+    display: none;
+  }
+  .password-input{
+    display: none;
+  }
+  .input-login{
+    border-bottom: 0.5px black solid;
+    margin-bottom: 5%;
+  }
+  .login-links{
+    color:rgba(0,0,0,0.4);
+    font-size: 10pt;
+  }
+  .register{
+    margin-top: 25%;
+    margin-bottom: 25%;
+  }
+  #register-input{
+    margin-top: 15%;
+    margin-bottom: 15%;
+    margin-right: 10%;
+    margin-left: 10%;
+
+  }
+  #register-image{
+    display: none;
+  }
+  #event-id-content{
+    display: flex;
+    flex-direction: column;
+    margin-top: 55%;
+    text-align: center;
+  }
+  #banner-event-id{
+    margin-bottom: 10%;
+  }
+  .buy-modal-content{
+    margin-top: 85%;
+    margin-left: 12%;
+    width: 70%;
+  }
+  #button-event-id{
+    margin-top: 10%;
+    margin-bottom: 10%;
+  }
+  #footer-content{
+    flex-direction: column;
   }
 }

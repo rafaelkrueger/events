@@ -1,0 +1,59 @@
+
+.crud{
+    margin-top:8%;
+    margin-left:25%;
+}
+
+#input-group-insert{
+    width: 70%;
+}
+
+#input-insert-event{
+    padding: 2%;
+    width: 20%;
+}
+
+#date-picker-insert{
+    margin-left: 30%;
+    margin-top: 5%;
+}
+
+#button-insert{
+    margin-left: 30%;
+    margin-top: 5%;
+}
+
+.remove-add-insert{
+    margin-left: 30%;
+}
+
+.remove-add-insert-icons{
+    margin-right: 20%;
+}
+
+
+.select-category{
+    background-color: rgba(0,0,0,0.7);
+    color: white;
+    margin-left: 8%;
+    padding: 4px;
+    border-radius: 10px;
+}
+
+@media only screen and (max-width:700px){
+    #input-group-insert{
+        display: flex;
+        flex-direction: column;
+        min-width: 100%;
+        margin-bottom: 15%;
+    }
+    #input-insert-event{
+        min-width: 100%;
+    }
+    #table-events{
+        width: 100%;
+        min-width: 100%;
+        margin-left: -20%;
+    
+    }
+}
