@@ -401,11 +401,27 @@ strong{
  min-width: 30%;
  background-color: whitesmoke;
  border-radius: 10px;
- padding:3%;
+ padding:2%;
+}
+
+#ticket-event-id > h5{
+  text-align: center;
+}
+#ticket-event-id > h6{
+  margin-left: 5%;
+  margin-top: 3%;
+}
+#button-event-id{
+  margin-top: 4%;
+  margin-left: 26%;
 }
 
 #event-id-description{
   color:rgba(0,0,0,0.7);
+}
+
+#button-event-id{
+  margin-left: 20%;
 }
 
 /*buy modal*/
@@ -426,11 +442,14 @@ strong{
   background-color: rgb(230,230,230);
   position: fixed;
   margin: 20%;
-  margin-top: 8%;
+  margin-top: 4%;
+  margin-bottom: 8%;
   margin-left: 20%;
   border-radius: 20px;
   padding: 2% 5% 2% 5% ;
   width: 60%;
+  height: 100%;
+  overflow-y: scroll;
   box-shadow: 1px 1px 30px rgba(0,0,0,0.4);
   color: rgba(0,0,0,0.7);
 }
@@ -441,32 +460,41 @@ strong{
   margin-top: 8%;
 }
 
-.buy-modal-sub{
-  color: black;
-  margin-bottom: -0%;
-}
 
 .buy-modal-list-item{
   display: flex;
   flex-direction: row;
   border-bottom: 0.3px rgba(0,0,0,0.1) solid;
+  justify-content: space-between;
+}
+
+.buy-modal-sub{
+  display: flex;
+  flex-direction: row;
+  padding: 5%;
+  justify-content: space-between;
+  align-items: flex-start;
 }
 
 .buy-modal-list-item-left{
-  margin-right: 38%;
-  min-width: 50%;
+  min-width: 100%;
   text-align: center;
+  align-self: flex-start;
+  align-items: center;
+}
+
+.buy-modal-list-right{
+  max-width:10%;
+  align-items: center;
 }
 
 #buy-modal-ticket-number{
-  width: 7%;
-  height: 7%;
-  margin-left:35%;
-  margin-bottom: 7%;
+  width: 100%;
+  height:50%;
   margin-top: 2%;
-  min-width: 50%;
   text-align: center;
-
+  margin-top: 15%;
+  border:1px rgba(0,0,0,0.5) solid;
 }
 
 .buy-modal-price{
@@ -498,8 +526,19 @@ strong{
 
 .purchase{
   margin: 15%;
+  display: flex;
+  flex-direction: row;
+  text-align: center;
 }
 
+.payment-choices{
+  margin: 2%;
+}
+
+.payment-choices-title{
+  display: flex;
+  flex-direction: row;
+}
 
 /*Footer*/
 #footer-style{
@@ -557,6 +596,9 @@ strong{
     width: 100%;
     margin-left: -6%;
     margin-bottom: 10%;
+  }
+  .eventos-title{
+    margin-top: 20%;
   }
   .event-cards{
     flex-direction: column;
@@ -644,19 +686,34 @@ strong{
     display: flex;
     flex-direction: column;
     margin-top: 55%;
-    text-align: center;
   }
   #banner-event-id{
     margin-bottom: 10%;
   }
-  .buy-modal-content{
-    margin-top: 85%;
-    margin-left: 12%;
-    width: 70%;
+  #ticket-event-id{
+    padding:7%;
+  }
+  #ticket-event-id > h5{
+    text-align: center;
+  }
+  #ticket-event-id > h6{
+    margin-left: 5%;
+    margin-top: 3%;
   }
   #button-event-id{
+    margin-top: 4%;
+    margin-left: 26%;
+  }
+  .buy-modal-content{
+    padding-top: 35%;
+    margin-left: -2%;
+    border-radius: 0px;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+  }
+  .purchase{
     margin-top: 10%;
-    margin-bottom: 10%;
   }
   #footer-content{
     flex-direction: column;

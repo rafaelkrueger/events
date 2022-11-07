@@ -1,21 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { BiSearch } from "react-icons/bi";
 import { Link } from "react-router-dom";
+import Empty from "../Images/empty.png";
 
 function Carousel({ eventos }) {
   const [pesquisa, setPesquisa] = useState("");
   const [current, setCurrent] = useState(0);
-  const length = eventos.length;
-
-  setTimeout(() => {
-    if (current == length - 1) {
-      setCurrent(0);
-    } else {
-      setCurrent(current + 1);
-    }
-  }, 5000);
-
-  console.log(length);
 
   return (
     <>
@@ -26,7 +16,7 @@ function Carousel({ eventos }) {
           <div id="carousel-component">
             <section className="slider">
               <Link>
-                {/* <img id="carousel-image" src={eventos[0][current].image} /> */}
+                <img id="carousel-image" src={Empty} />
               </Link>
             </section>
           </div>
