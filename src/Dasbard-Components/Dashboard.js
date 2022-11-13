@@ -21,7 +21,7 @@ function Dashboard() {
       .catch((err) => {
         console.log(err);
       });
-  }, []);
+  });
 
   const openSidebar = () => {
     setSidebarOpen(true);

@@ -5,6 +5,24 @@ import { useNavigate } from "react-router-dom";
 function Modal({ evento, setModal, modal, ticket, setTicket }) {
   const navigate = useNavigate();
 
+  const changeQuantity = () => {
+    let totalQuantity = 0;
+    for (let i = 0; i < ticket.length; i++) {
+      totalQuantity = totalQuantity + parseInt(ticket[i].quantity);
+    }
+    return totalQuantity;
+  };
+
+  const changePrice = () => {
+    let totalPrice = 0;
+    for (let i = 0; i < ticket.length; i++) {
+      for (let j = 0; j < ticket[i].quantity; j++) {
+        totalPrice = totalPrice + parseFloat(ticket[i].valor);
+      }
+    }
+    return totalPrice;
+  };
+
   return (
     <>
       {evento == undefined ? (
@@ -63,13 +81,13 @@ function Modal({ evento, setModal, modal, ticket, setTicket }) {
                 <h6>
                   <strong>Total de Tickets</strong>
                 </h6>
-                <p>3</p>
+                <p>{changeQuantity()}</p>
               </div>
               <div className="buy-modal-total-price">
                 <h6>
                   <strong>Valor Total</strong>
                 </h6>
-                <p>R$5</p>
+                <p>{changePrice().toFixed(2)}</p>
               </div>
               <div className="buy-modal-price-button">
                 <button

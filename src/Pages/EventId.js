@@ -13,12 +13,10 @@ function EventId({ ticket, setTicket }) {
   const { idEvent } = useParams();
   const [evento, setEvento] = useState();
   const [modal, setModal] = useState("none");
-
   useEffect(() => {
     Api.get(`http://localhost:8080/specific-event/${idEvent}`)
       .then((res) => {
         setEvento(res.data[0]);
-        console.log(res.data[0]);
       })
       .catch((err) => {
         console.log(err);
@@ -29,7 +27,9 @@ function EventId({ ticket, setTicket }) {
     <>
       <Navbar />
       {evento == undefined ? (
-        ""
+        <h3 style={{ alignSelf: "center", margin: "10%" }}>
+          Evento não encontrado!
+        </h3>
       ) : (
         <div className="event-id">
           <div className="container">

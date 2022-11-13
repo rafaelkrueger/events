@@ -2,44 +2,13 @@ import React, { useState } from "react";
 import "./ModalMain.css";
 import Api from "../../Api";
 
-function ModalMain({ modal, setModal, empresa, modalContent }) {
+function ModalMain({ modal, setModal, modalContent }) {
   const [updatedContent, setupdatedContent] = useState({
     description: modalContent.description,
     ingresso: modalContent.ingresso,
-    adress: modalContent.adress,
     data: modalContent.data,
     hour: modalContent.hour,
   });
-
-  const [adressApi, setadressApi] = useState({
-    cep: "",
-    bairro: "",
-    rua: "",
-    cidade: "",
-    estado: "",
-  });
-
-  const fetchAdress = () => {
-    Api.get(`https://viacep.com.br/ws/${adressApi.cep}/json/`)
-      .then((res) => {
-        setadressApi({
-          estado: res.data.uf,
-          bairro: res.data.bairro,
-          cidade: res.data.localidade,
-        });
-        setupdatedContent({
-          ...updatedContent,
-          adress: {
-            estado: res.data.uf,
-            bairro: res.data.bairro,
-            cidade: res.data.localidade,
-          },
-        });
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
 
   return (
     <div className="modal-produto" style={{ visibility: modal }}>
@@ -111,39 +80,6 @@ function ModalMain({ modal, setModal, empresa, modalContent }) {
                   }}
                 ></textarea>
               </div>
-              <div class="input-group mb-3">
-                <input
-                  onBlur={fetchAdress}
-                  onChange={(e) => {
-                    setadressApi({ ...adressApi, cep: e.target.value });
-                  }}
-                  type="text"
-                  aria-label="First name"
-                  class="form-control"
-                  placeholder="CEP"
-                />
-                <input
-                  value={adressApi.bairro}
-                  type="text"
-                  aria-label="Last name"
-                  class="form-control"
-                  placeholder="Bairro"
-                />
-              </div>
-              <div class="input-group mb-3">
-                <input
-                  type="text"
-                  class="form-control"
-                  placeholder="Rua e Número"
-                />
-                <input
-                  value={adressApi.cidade}
-                  type="text"
-                  class="form-control"
-                  placeholder="Cidade"
-                />
-              </div>
-
               <div>
                 <input
                   placeholder="Data do evento"
@@ -171,13 +107,10 @@ function ModalMain({ modal, setModal, empresa, modalContent }) {
           <button
             onClick={() => {
               Api.patch("http://localhost:8080/update-evento", {
-                empresa: empresa._id,
                 _id: modalContent._id,
                 name: modalContent.name,
-                image: modalContent.image,
-                description: updatedContent.description,
                 ingresso: modalContent.ingresso,
-                adress: updatedContent.adress,
+                description: updatedContent.description,
                 data: updatedContent.data,
                 hour: updatedContent.hour,
               })

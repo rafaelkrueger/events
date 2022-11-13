@@ -48,8 +48,8 @@ function CRUD({ empresa }) {
   const [prototypeingresso, setprototypeIngresso] = useState({
     price: "",
     type: "",
-    limit: "",
     lote: "",
+    limit: "",
   });
   const [inputnumber, setinputNumber] = useState(0);
 
@@ -161,6 +161,9 @@ function CRUD({ empresa }) {
                 type="text"
                 class="form-control"
                 placeholder="Rua e Número"
+                onChange={(e) => {
+                  setadressApi({ ...adressApi, rua: e.target.value });
+                }}
               />
               <input
                 value={adressApi.cidade}
