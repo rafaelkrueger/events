@@ -5,8 +5,26 @@ import Empty from "../Images/empty.png";
 
 function Carousel({ eventos }) {
   const [pesquisa, setPesquisa] = useState("");
-  const [current, setCurrent] = useState(0);
+  const [current, setCurrent] = useState({
+    link: "",
+    image: "",
+  });
 
+  useEffect(() => {
+    let start = 0;
+    setInterval(() => {
+      if (eventos.length > 0) {
+        if (start === eventos[0]?.length) {
+          start = 0;
+        }
+        setCurrent({
+          link: eventos[0][start]?._id,
+          image: eventos[0][start]?.image,
+        });
+        start++;
+      }
+    }, 1500);
+  }, [eventos]);
   return (
     <>
       {eventos === undefined ? (
@@ -15,24 +33,14 @@ function Carousel({ eventos }) {
         <>
           <div id="carousel-component">
             <section className="slider">
-              <Link>
-                <img id="carousel-image" src={Empty} />
+              <Link to={`/eventos/${current?.link}`}>
+                <img
+                  id="carousel-image"
+                  src={current?.image !== "" ? current?.image : Empty}
+                  alt="evento mundial"
+                />
               </Link>
             </section>
-          </div>
-
-          <div id="search-carousel">
-            {pesquisa.length > 0 ? (
-              ""
-            ) : (
-              <span id="span-input-search">{<BiSearch />}</span>
-            )}
-            <input
-              className="input-large"
-              onChange={(e) => setPesquisa(e.target.value)}
-              id="search-event"
-              placeholder="Pesquise um evento"
-            />
           </div>
         </>
       )}

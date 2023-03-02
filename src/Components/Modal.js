@@ -25,7 +25,7 @@ function Modal({ evento, setModal, modal, ticket, setTicket }) {
 
   return (
     <>
-      {evento == undefined ? (
+      {evento === undefined ? (
         ""
       ) : (
         <div className="buy-modal" style={{ display: modal }}>

@@ -13,7 +13,7 @@ function Dashboard() {
   const params = useParams();
 
   useEffect(() => {
-    Api.get(`http://localhost:8080/empresa/${params.id}`)
+    Api.get(`/empresa/${params.id}`)
       .then((res) => {
         console.log(res.data);
         setEmpresa(res.data);

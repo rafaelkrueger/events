@@ -1,17 +1,8 @@
 import React, { useState } from "react";
-import Pix from "../Images/payment/pix-checkout.png";
-import Hipercard from "../Images/payment/credito-hipercard-icon.png";
-import Matercard from "../Images/payment/credito-mastercard-icon.png";
-import Visa from "../Images/payment/visa-icon.png";
-import Nubank from "../Images/payment/nubank-icon.png";
-import Santander from "../Images/payment/santander-icon.png";
-import Itau from "../Images/payment/itau-icon.png";
-import Caixa from "../Images/payment/caixa-icon.png";
-import BancoBrasil from "../Images/payment/bancobrasil-icon.png";
-import Bradesco from "../Images/payment/bradesco-icon.png";
-
+import PaymentChoose from "./PaymentChoose";
 function Purchase({ ticket, setTicket }) {
   const [ingressantes, setIngressantes] = useState([]);
+  const [filled, setFilled] = useState(true);
   const [newIngressante, setnewIngressante] = useState({
     name: "",
     document: "",
@@ -21,6 +12,7 @@ function Purchase({ ticket, setTicket }) {
     <>
       <div className="purchase">
         <div className="col">
+          <br />
           <h3>
             <strong>Dados Dos Ingressos</strong>
           </h3>
@@ -32,10 +24,7 @@ function Purchase({ ticket, setTicket }) {
               <>
                 <div className="row">
                   <div className="col">
-                    <h4>
-                      {list.quantity} -
-                      {list.type == undefined ? "undefined" : list.type}
-                    </h4>
+                    <h4>{list.type === undefined ? "undefined" : list.type}</h4>
                     {(() => {
                       let inputs = [];
                       for (let i = 0; i < list.quantity; i++) {
@@ -67,7 +56,7 @@ function Purchase({ ticket, setTicket }) {
                                   setnewIngressante({
                                     ...newIngressante,
                                     type:
-                                      list.type == undefined
+                                      list.type === undefined
                                         ? "undefined"
                                         : list.type,
                                   });
@@ -108,7 +97,7 @@ function Purchase({ ticket, setTicket }) {
             Os Dados a cima são importantes para entrar no evento, confirme-os
             antes de continuar
           </p>
-          <div class="input-group mb-3">
+          <div class="input-group mb-3" id="purchase-confirm">
             <div class="input-group-text bg-primary">
               <input
                 class="form-check-input mt-0 success"
@@ -116,37 +105,16 @@ function Purchase({ ticket, setTicket }) {
                 aria-label="Checkbox for following text input"
               />
             </div>
-            <button className="btn btn-large btn-primary">Dados</button>
+            <button
+              id="purchase-confirm-button"
+              className="btn btn-large btn-primary"
+            >
+              Confirmar Dados
+            </button>
           </div>
         </div>
         <div className="col">
-          <h5>Escolha a forma de pagamento</h5>
-          <hr />
-          <br />
-          <br />
-          <div className="row">
-            <div className="col">
-              <div className="payment-choices">
-                <div className="payment-choices-title">
-                  <h4>Pix</h4> <p>Pagamento rápido</p>
-                </div>
-                <div className="payment-choices-image">
-                  <img src={Pix} />
-                </div>
-              </div>
-              <div className="payment-choices">
-                <div className="payment-choices-title">
-                  <h5>Cartão de Crédito/Saldo</h5>
-                  <p>Pagamento crédito/saldo bancario</p>
-                </div>
-                <div className="payment-choices-image">
-                  <img src={Matercard} />
-                  <img src={Hipercard} />
-                  <img src={Visa} />
-                </div>
-              </div>
-            </div>
-          </div>
+          <PaymentChoose filled={filled} setFilled={setFilled} />
         </div>
       </div>
     </>

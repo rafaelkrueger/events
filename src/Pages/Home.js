@@ -10,14 +10,15 @@ function Home({ user, setUser }) {
   const [eventos, setEventos] = useState([]);
 
   useEffect(() => {
-    Api.get("http://localhost:8080/all-events")
+    Api.get("/all-events")
       .then((res) => {
+        console.log(res.data);
         setEventos(res.data);
       })
       .catch((err) => {
         console.log(err);
       });
-  });
+  }, []);
 
   return (
     <>

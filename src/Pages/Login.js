@@ -44,7 +44,7 @@ function Login({ setUser }) {
               id="login-button"
               className="btn btn-large btn-success"
               onClick={() => {
-                Api.post("http://localhost:8080/login-cliente", {
+                Api.post("https:/passporter.herokuapp.com/login-cliente", {
                   email: userlogin.email,
                   password: userlogin.password,
                 })
@@ -88,7 +88,7 @@ function Login({ setUser }) {
             <button
               id="login-button"
               onClick={() => {
-                Api.post("http://localhost:8080/login-empresa", {
+                Api.post("/login-empresa", {
                   email: userlogin.email,
                   password: userlogin.password,
                 })

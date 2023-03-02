@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "./CRUD.css";
-import { AiOutlineFileImage } from "react-icons/ai";
 import { GiPartyPopper } from "react-icons/gi";
 import { AiOutlinePlusCircle, AiOutlineMinusCircle } from "react-icons/ai";
 import Api from "../../Api";
+import UndefinedImage from "../../Images/undefined.png";
 import TableEvents from "./TableEvents";
 
 function CRUD({ empresa }) {
@@ -72,12 +72,21 @@ function CRUD({ empresa }) {
   };
 
   const removeInput = () => {
-    setinputNumber(inputnumber - 1);
+    if (inputnumber > 0) {
+      setinputNumber(inputnumber - 1);
+    } else {
+      console.log(inputnumber);
+    }
   };
 
   return (
     <>
       <div className="crud">
+        <img
+          src={evento.image ? evento.image : UndefinedImage}
+          className="crud-event-image"
+          alt="event"
+        />
         <h3>Insira Um Evento</h3>
         <br />
         <div className="row" id="input-group-insert">
@@ -361,7 +370,7 @@ function CRUD({ empresa }) {
           </div>
           <button
             onClick={() => {
-              Api.patch("http://localhost:8080/set-ingresso", {
+              Api.patch("http://localhost:8083/set-ingresso", {
                 empresa: empresa._id,
                 image: evento.image,
                 name: evento.name,

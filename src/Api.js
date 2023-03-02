@@ -1,7 +1,7 @@
-import axios from 'axios'
+import axios from "axios";
 
 const Api = axios.create({
-    baseURL:"http://localhost:8080/"
-})
+  baseURL: "https://passporter.herokuapp.com/",
+});
 
-export default Api
+export default Api;

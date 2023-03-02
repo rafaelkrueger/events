@@ -106,7 +106,7 @@ function ModalMain({ modal, setModal, modalContent }) {
           </div>
           <button
             onClick={() => {
-              Api.patch("http://localhost:8080/update-evento", {
+              Api.patch("https:/passporter.herokuapp.com/update-evento", {
                 _id: modalContent._id,
                 name: modalContent.name,
                 ingresso: modalContent.ingresso,
