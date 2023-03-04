@@ -12,11 +12,6 @@ function Events({ eventos }) {
             Essa é nossa lista de <strong>eventos</strong> mais recentes
           </h3>
           <div id="search-carousel">
-            {pesquisa.length > 0 ? (
-              ""
-            ) : (
-              <span id="span-input-search">{<BiSearch />}</span>
-            )}
             <input
               className="input-large"
               onChange={(e) => setPesquisa(e.target.value)}
@@ -61,6 +56,8 @@ function Events({ eventos }) {
                                     : subItems.description.substr(0, 75)}
                                   ...
                                 </p>
+                              </div>
+                              <div className="card-footer">
                                 <Link
                                   to={`/eventos/${subItems._id}`}
                                   id="event-card-button"

@@ -5,7 +5,7 @@
 }
 
 .crud-event-image{
-    width: 100%;
+    max-width: 100%;
     border: 15px;
     margin-bottom: 5%;
 }

@@ -30,17 +30,19 @@ function Modal({ evento, setModal, modal, ticket, setTicket }) {
       ) : (
         <div className="buy-modal" style={{ display: modal }}>
           <div className="buy-modal-content">
-            <p>
-              <AiOutlineClose
-                onClick={() => {
-                  setModal("none");
-                }}
-              />
-            </p>
-            <h3>
-              <strong>{evento.name}</strong>
-            </h3>
-            <hr />
+            <div className="buy-modal-header">
+              <p>
+                <AiOutlineClose
+                  onClick={() => {
+                    setModal("none");
+                  }}
+                />
+              </p>
+              <h3>
+                <strong>{evento.name}</strong>
+              </h3>
+              <hr />
+            </div>
             <div className="buy-modal-list">
               {evento.ingresso.map((list) => {
                 return (

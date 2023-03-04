@@ -33,54 +33,65 @@ function Pix({ data, costumer, valortotal, cart, realCupom, setRealCupom }) {
               <img className="pay-icon" src={PixImage} alt="Pagamento Pix" />
             </div>
             <div className="body-component">
-              <h3>
-                Pix
-                <span className="header-commponent-span">
-                  Pague pelo app do banco
-                </span>
-              </h3>
+              <div className="body-component-header">
+                <h3>
+                  Pix
+                  <span className="header-commponent-span">
+                    Pague pelo app do banco
+                  </span>
+                </h3>
+              </div>
               <hr />
-              <p className="pix-text">
-                Pagamento pix, Clique o botão para gerar o QrCode. Após gerar o
-                Qrcode scaneie com o aplicativo do seu banco para completar o
-                pagamento
-              </p>
-              <button
-                id="pix-button"
-                onClick={() => {
-                  setDisabled(true);
-                  Api.post(`https://tamarintec.herokuapp.com/pix`, {
-                    empresa: data._id,
-                    name: costumer.name,
-                    email: costumer.email,
-                    cpf: costumer.identification,
-                    password: costumer.password,
-                    number: costumer.number,
-                    cep: costumer.cep,
-                    state: costumer.state,
-                    city: costumer.city,
-                    street: costumer.street,
-                    streetNumber: costumer.adressNumber,
-                    valor: valortotal,
-                    products: [cart],
-                    idCupom: realCupom[0]?._id ? realCupom[0]._id : null,
-                    avaible: realCupom[0]?.avaible
-                      ? realCupom[0].avaible
-                      : null,
-                  })
-                    .then((res) => {
-                      setQrcode(res.data.qrcode);
-                      setTxId(res.data.txid);
-                    })
-                    .catch((err) => {
-                      console.log(err);
-                    });
-                }}
-                className="btn btn-large btn-success"
-                disabled={disabled}
-              >
-                Gerar QRcode
-              </button>
+              <div className="row" id="pix-body">
+                <div className="col">
+                  <p className="pix-text">
+                    Pagamento pix, Clique o botão para gerar o QrCode. Após
+                    gerar o Qrcode scaneie com o aplicativo do seu banco para
+                    completar o pagamento
+                  </p>
+                  <button
+                    id="pix-button"
+                    onClick={() => {
+                      setDisabled(true);
+                      Api.post(`https://tamarintec.herokuapp.com/pix`, {
+                        empresa: data._id,
+                        name: costumer.name,
+                        email: costumer.email,
+                        cpf: costumer.identification,
+                        password: costumer.password,
+                        number: costumer.number,
+                        cep: costumer.cep,
+                        state: costumer.state,
+                        city: costumer.city,
+                        street: costumer.street,
+                        streetNumber: costumer.adressNumber,
+                        valor: valortotal,
+                        products: [cart],
+                        idCupom: realCupom[0]?._id ? realCupom[0]._id : null,
+                        avaible: realCupom[0]?.avaible
+                          ? realCupom[0].avaible
+                          : null,
+                      })
+                        .then((res) => {
+                          setQrcode(res.data.qrcode);
+                          setTxId(res.data.txid);
+                        })
+                        .catch((err) => {
+                          console.log(err);
+                        });
+                    }}
+                    className="btn btn-large btn-success"
+                    disabled={disabled}
+                  >
+                    Gerar QRcode
+                  </button>
+                </div>
+                <div style={{ width: "100%" }} className="col">
+                  <p id="pix-qrcode-skeleton" className="skeleton">
+                    Seu código sera mostrado aqui ao clicar no botão
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
           <div className="col">

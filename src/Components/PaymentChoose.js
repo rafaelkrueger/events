@@ -8,7 +8,7 @@ function PaymentChoose({ filled, setFilled }) {
 
   return (
     <div className="purchase">
-      <div className="row" id="purchase-join-pages">
+      <div id="purchase-join-pages">
         <div id="select-payment">
           <div
             className="back-arrow"
@@ -16,7 +16,7 @@ function PaymentChoose({ filled, setFilled }) {
               setFilled(!filled);
             }}
           >
-            <p className="back-arrow-button">Escolha o Pagamento</p>
+            <p className="back-arrow-button">Voltar para os Dados</p>
           </div>
           <div className="purchase-options">
             <div className="purchase-options-element">
@@ -78,12 +78,10 @@ function PaymentChoose({ filled, setFilled }) {
             </div>
           </div>
         </div>
-        <div>
-          <div className="purchase-selected">
-            {chosen === 1 ? <Pix /> : ""}
-            {chosen === 2 ? <CreditCard /> : ""}
-            {chosen === 3 ? <Boleto /> : ""}
-          </div>
+        <div className="purchase-selected">
+          {chosen === 1 ? <Pix /> : ""}
+          {chosen === 2 ? <CreditCard /> : ""}
+          {chosen === 3 ? <Boleto /> : ""}
         </div>
       </div>
     </div>
