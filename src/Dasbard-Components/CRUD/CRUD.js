@@ -4,6 +4,7 @@ import { GiPartyPopper } from "react-icons/gi";
 import { AiOutlinePlusCircle, AiOutlineMinusCircle } from "react-icons/ai";
 import Api from "../../Api";
 import UndefinedImage from "../../Images/undefined.png";
+import axios from "axios";
 import TableEvents from "./TableEvents";
 
 function CRUD({ empresa }) {
@@ -369,8 +370,28 @@ function CRUD({ empresa }) {
             </div>
           </div>
           <button
-            onClick={() => {
-              Api.patch("http://localhost:8083/set-ingresso", {
+            onClick={async () => {
+              const apiKey = "vWWY8QAGe1r10wbBIvE86vFN9GS5tErF";
+              const urlApi = `http://www.mapquestapi.com/geocoding/v1/address?key=${apiKey}`;
+              const getLocation = {
+                location: `${adressApi.rua}, ${adressApi.bairro}, ${adressApi.cidade}, ${adressApi.estado}`,
+                options: {
+                  thumbMaps: false,
+                },
+              };
+              let latitude = null;
+              let longitude = null;
+              await axios
+                .post(urlApi, getLocation)
+                .then((response) => {
+                  latitude = response.data.results[0].locations[0].latLng.lat;
+                  longitude = response.data.results[0].locations[0].latLng.lng;
+                })
+                .catch((error) => {
+                  console.error(error);
+                });
+
+              Api.patch("https://passporter.herokuapp.com/set-ingresso", {
                 empresa: empresa._id,
                 image: evento.image,
                 name: evento.name,
@@ -383,6 +404,8 @@ function CRUD({ empresa }) {
                 cidade: adressApi.cidade,
                 estado: adressApi.estado,
                 ingresso: ingresso,
+                latitude: latitude,
+                longitude: longitude,
               });
             }}
             className="btn btn-large btn-success"

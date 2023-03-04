@@ -23,11 +23,20 @@ function App() {
     cpf: "",
     password: "",
     url: "",
+    logged: false,
   });
 
   const [ticket, setTicket] = useState([]);
 
-  const [user, setUser] = useState();
+  const [user, setUser] = useState({
+    name: "",
+    user: "",
+    email: "",
+    cellphone: "",
+    cpf: "",
+    password: "",
+    logged: false,
+  });
 
   return (
     <BrowserRouter>
@@ -74,6 +83,8 @@ function App() {
               setUser={setUser}
               ticket={ticket}
               setTicket={setTicket}
+              newuser={newuser}
+              setnewUser={setnewUser}
             />
           }
         />

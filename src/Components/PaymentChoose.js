@@ -3,7 +3,7 @@ import Pix from "./payments/Pix";
 import CreditCard from "./payments/CreditCard";
 import Boleto from "./payments/Boleto";
 
-function PaymentChoose({ filled, setFilled }) {
+function PaymentChoose({ filled, setFilled, confirmedInfo, setConfirmedInfo }) {
   const [chosen, setChosen] = useState(1);
 
   return (
@@ -16,7 +16,7 @@ function PaymentChoose({ filled, setFilled }) {
               setFilled(!filled);
             }}
           >
-            <p className="back-arrow-button">Voltar para os Dados</p>
+            <p className="back-arrow-button">Escolha o Pagamento</p>
           </div>
           <div className="purchase-options">
             <div className="purchase-options-element">

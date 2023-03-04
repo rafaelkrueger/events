@@ -207,7 +207,16 @@ strong{
   margin-right: 2%;
   color:rgb(34, 34, 122);
 }
-
+.ticket-list{
+  margin-top: 5%;
+  text-align: left;
+}
+#ticket-register-section{
+  margin-left: 4%;
+}
+#register-input-section-ticket{
+  margin-top: 7.5%;
+}
 .information-title{
   color:rgb(34, 34, 122);
   font-size: 19pt;
@@ -782,6 +791,19 @@ strong{
   cursor: pointer;
 }
 
+.profile{
+  margin-top: 10%;
+}
+#profile-infos-image{
+  width: 60%;
+  margin-left: 15%;
+  margin-bottom: 10%;
+  border-radius: 40px;
+}
+#profile-products{
+  margin-left: 30%;
+  width: 100%;
+}
 
 
 /*Footer*/
@@ -795,6 +817,7 @@ strong{
 .footer-title{
   color:rgba(0,0,0,0.9);
 }
+
 
 
 
@@ -954,7 +977,7 @@ strong{
     background-color: white;
   }
   .purchase{
-    margin-top: 10%;
+    margin-top: 7%;
     flex-direction: column;
   }
   .ticket-list{
@@ -964,6 +987,10 @@ strong{
     max-width: 100%;
     flex-wrap: nowrap;
     justify-content: center;
+    display: flex;
+  }
+  #purchase-confirm-info{
+    margin-left: 10%;
   }
   #purchase-confirm-button{
     width:100%;
@@ -974,6 +1001,14 @@ strong{
   }
   .purchase-options-element{
     margin-left: -10%;
+  }
+  #purchase-join-pages{
+    flex-direction: column;
+    margin: -7%;
+  }
+  .purchase-selected{
+    margin-top: 15%;
+    margin-left: 0%;
   }
   .back-arrow-button{
     padding: 10px;
@@ -994,6 +1029,29 @@ strong{
   }
   #pix-body{
     flex-direction: column;
+  }
+  .profile{
+    margin-top: 10%;
+  }
+  #profile-info-purchase-button{
+    font-size: 12pt;
+  }
+  #responsive-profile{
+    display: flex;
+    flex-direction: column;
+  }
+  .profile{
+    margin-top: 30%;
+  }
+
+  #profile-products{
+    margin-top: 10%;
+    margin-left:0% !important;
+  }
+  #profile-infos-image{
+    width: 90%;
+    border-radius: 40px;
+    margin-top: 10%;
   }
 
   #footer-content{

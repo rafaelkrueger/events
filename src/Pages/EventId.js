@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Navbar from "../Components/Navbar";
 import Footer from "../Components/Footer";
 import Modal from "../Components/Modal";
+import { GoogleMap, Marker, LoadScript } from "@react-google-maps/api";
 import { useParams } from "react-router-dom";
 import { MdDateRange } from "react-icons/md";
 import { BiTime } from "react-icons/bi";
@@ -87,15 +88,15 @@ function EventId({ ticket, setTicket }) {
             <div className="row" id="event-id-description">
               <h4>Localização do Evento</h4>
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3673.137267633411!2d-46.54741548523136!3d-22.981979284973676!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94cec9960f07fe65%3A0x1256265d25bd7809!2sLi%20semijoias!5e0!3m2!1spt-BR!2sbr!4v1677780106568!5m2!1spt-BR!2sbr"
-                style={{ borderRadius: "15px" }}
-                title="Localização do evento"
-                width="600"
-                height="450"
-                allowfullscreen=""
-                loading="lazy"
-                referrerpolicy="no-referrer-when-downgrade"
-              ></iframe>
+                title="Map"
+                style={{ border: 0 }}
+                allowFullScreen="true"
+                aria-hidden="false"
+                tabIndex="0"
+                width={100}
+                height={500}
+                src={`https://www.google.com/maps/embed/v1/view?key=AIzaSyDMUHaaZvttVK4Jy1NoQwFzOqOKR_N7wZE&center=${evento?.adress?.location?.latitude},${evento?.adress?.location?.longitude}&zoom=17`}
+              />{" "}
             </div>
           </div>
         </div>
