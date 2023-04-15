@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./Main.css";
 import ModalMain from "./ModalMain";
+import { Link } from "react-router-dom";
 
 export default function Main({ empresa }) {
   const [modal, setModal] = useState("hidden");
@@ -28,7 +29,7 @@ export default function Main({ empresa }) {
           modalContent={modalContent}
         />
         <div className="container" id="eventos-dashboard">
-          {empresa.events == undefined
+          {empresa.events === undefined
             ? ""
             : empresa.events.map((list) => {
                 return (
@@ -57,13 +58,28 @@ export default function Main({ empresa }) {
                           class="card-img-top"
                           src={list.image}
                           id="image-eventos-dashboard"
+                          alt={`${list.name}`}
                         />
                         <div class="card-body">
                           <h5 class="card-title">{list.name}</h5>
-                          <p class="card-text">{list.description}</p>
-                          <a href="#" class="btn btn-primary">
-                            Ver Publicação
-                          </a>
+                          <p class="card-text">
+                            {list.description.slice(0, 180)}...
+                          </p>
+                          <hr />
+                          <div className="main-event-status">
+                            <Link
+                              to={`/eventos/${list._id}`}
+                              class="btn btn-success"
+                            >
+                              Estatísticas
+                            </Link>
+                            <Link
+                              to={`/eventos/${list._id}`}
+                              class="btn btn-primary"
+                            >
+                              Publicação
+                            </Link>
+                          </div>
                         </div>
                       </div>
                     }

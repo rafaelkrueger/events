@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { AiOutlineClose } from "react-icons/ai";
 import { useNavigate } from "react-router-dom";
 
@@ -44,7 +44,7 @@ function Modal({ evento, setModal, modal, ticket, setTicket }) {
               <hr />
             </div>
             <div className="buy-modal-list">
-              {evento.ingresso.map((list) => {
+              {evento.ingresso.map((list, index) => {
                 return (
                   <>
                     <div className="buy-modal-list-item">
@@ -58,15 +58,22 @@ function Modal({ evento, setModal, modal, ticket, setTicket }) {
                       </div>
                       <div className="buy-modal-list-right">
                         <input
-                          onChange={(e) => {
+                          onBlur={(e) => {
+                            ticket.filter((val) => {
+                              if (val.id !== index) {
+                                return val;
+                              }
+                            });
                             setTicket([
                               ...ticket,
                               {
+                                id: index,
                                 type: list.type,
                                 quantity: e.target.value,
                                 valor: list.price,
                               },
                             ]);
+                            console.log(ticket);
                           }}
                           type="number"
                           id="buy-modal-ticket-number"

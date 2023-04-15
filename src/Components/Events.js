@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { BiSearch } from "react-icons/bi";
 
 function Events({ eventos }) {
   const [pesquisa, setPesquisa] = useState("");

@@ -124,7 +124,7 @@ strong{
   display: flex;
   flex-wrap: wrap;
   margin-top: 5%;
-  justify-content: center;
+  justify-content: space-around;
 }
 
 #event-card-element{

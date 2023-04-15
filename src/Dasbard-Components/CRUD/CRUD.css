@@ -3,11 +3,18 @@
     margin-top:8%;
     margin-left:25%;
 }
+.image-event-crud{
+    min-width: 100px;
+    max-height: 100px;
+}
 
 .crud-event-image{
-    max-width: 100%;
-    border: 15px;
-    margin-bottom: 5%;
+    min-width: 100%;
+}
+
+#btn-insert-crud{
+    min-width: 100%;
+    margin-top: 10%;
 }
 
 #input-group-insert{

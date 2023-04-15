@@ -83,70 +83,20 @@ function CRUD({ empresa }) {
   return (
     <>
       <div className="crud">
-        <img
-          src={evento.image ? evento.image : UndefinedImage}
-          className="crud-event-image"
-          alt="event"
-        />
-        <h3>Insira Um Evento</h3>
         <br />
+        <h3>Insira Um Evento</h3>
         <div className="row" id="input-group-insert">
           <div className="col" id="input-insert-event">
-            <div class="input-group mb-3">
-              <input
-                type="file"
-                class="form-control"
-                onChange={async (e) => {
-                  const file = e.target.files[0];
-                  const base64 = await convertBase64(file);
-                  console.log(base64);
-                  setEvento({ ...evento, image: base64 });
-                }}
-              />
-            </div>
+            <img
+              src={evento.image ? evento.image : UndefinedImage}
+              className="crud-event-image"
+              alt="event"
+            />
             <br />
-            <div class="input-group mb-1">
-              <span class="input-group-text" id="inputGroup-sizing-default">
-                <GiPartyPopper />
-              </span>
-              <input
-                onChange={(e) => {
-                  setEvento({ ...evento, name: e.target.value });
-                }}
-                type="text"
-                class="form-control"
-                placeholder="Nome do Evento"
-              />
-            </div>
-            <div class="input-group mb-3">
-              <textarea
-                onChange={(e) => {
-                  setEvento({ ...evento, description: e.target.value });
-                }}
-                rows={7}
-                type="text"
-                class="form-control"
-                placeholder="Insira uma descrição para o evento"
-              ></textarea>
-            </div>
-            <div id="date-picker-insert">
-              <input
-                placeholder="Data do evento"
-                type="date"
-                onChange={(e) => {
-                  setdatePicker({ ...datepicker, data: e.target.value });
-                }}
-              />
-              <input
-                placeholder="Horario do Evento"
-                type="time"
-                onChange={(e) => {
-                  setdatePicker({ ...datepicker, hour: e.target.value });
-                }}
-              />
-            </div>
-          </div>
-          <div className="col" id="input-insert-event">
+            <br />
+
+            <h3>Endereço do Evento</h3>
+            <br />
             <div class="input-group mb-3">
               <input
                 onBlur={fetchAdress}
@@ -182,6 +132,68 @@ function CRUD({ empresa }) {
                 placeholder="Cidade"
               />
             </div>
+
+            <br />
+            <div id="date-picker-insert">
+              <input
+                placeholder="Data do evento"
+                type="date"
+                onChange={(e) => {
+                  setdatePicker({ ...datepicker, data: e.target.value });
+                }}
+              />
+              <input
+                placeholder="Horario do Evento"
+                type="time"
+                onChange={(e) => {
+                  setdatePicker({ ...datepicker, hour: e.target.value });
+                }}
+              />
+            </div>
+          </div>
+
+          <div className="col" id="input-insert-event">
+            <h3>Dados do Evento</h3>
+            <br />
+            <div class="input-group mb-3">
+              <input
+                type="file"
+                class="form-control"
+                onChange={async (e) => {
+                  const file = e.target.files[0];
+                  const base64 = await convertBase64(file);
+                  console.log(base64);
+                  setEvento({ ...evento, image: base64 });
+                }}
+              />
+            </div>
+            <div class="input-group mb-1">
+              <span class="input-group-text" id="inputGroup-sizing-default">
+                <GiPartyPopper />
+              </span>
+              <input
+                onChange={(e) => {
+                  setEvento({ ...evento, name: e.target.value });
+                }}
+                type="text"
+                class="form-control"
+                placeholder="Nome do Evento"
+              />
+            </div>
+            <div class="input-group mb-3">
+              <textarea
+                onChange={(e) => {
+                  setEvento({ ...evento, description: e.target.value });
+                }}
+                rows={7}
+                type="text"
+                class="form-control"
+                placeholder="Insira uma descrição para o evento"
+              ></textarea>
+            </div>
+            <br />
+            <h3>Tipos de Ingresso</h3>
+            <hr />
             <div class="input-group mb-3">
               <input
                 onChange={(e) => {
@@ -206,6 +218,8 @@ function CRUD({ empresa }) {
                 class="form-control"
                 placeholder="Categoria (Pista, Camarote)"
               />
+              <br />
+              <br />
               <div class="input-group mb-3">
                 <input
                   onChange={(e) => {
@@ -368,51 +382,52 @@ function CRUD({ empresa }) {
                 className="remove-add-insert-icons"
               />
             </div>
-          </div>
-          <button
-            onClick={async () => {
-              const apiKey = "vWWY8QAGe1r10wbBIvE86vFN9GS5tErF";
-              const urlApi = `http://www.mapquestapi.com/geocoding/v1/address?key=${apiKey}`;
-              const getLocation = {
-                location: `${adressApi.rua}, ${adressApi.bairro}, ${adressApi.cidade}, ${adressApi.estado}`,
-                options: {
-                  thumbMaps: false,
-                },
-              };
-              let latitude = null;
-              let longitude = null;
-              await axios
-                .post(urlApi, getLocation)
-                .then((response) => {
-                  latitude = response.data.results[0].locations[0].latLng.lat;
-                  longitude = response.data.results[0].locations[0].latLng.lng;
-                })
-                .catch((error) => {
-                  console.error(error);
-                });
+            <button
+              onClick={async () => {
+                const apiKey = "vWWY8QAGe1r10wbBIvE86vFN9GS5tErF";
+                const urlApi = `http://www.mapquestapi.com/geocoding/v1/address?key=${apiKey}`;
+                const getLocation = {
+                  location: `${adressApi.rua}, ${adressApi.bairro}, ${adressApi.cidade}, ${adressApi.estado}`,
+                  options: {
+                    thumbMaps: false,
+                  },
+                };
+                let latitude = null;
+                let longitude = null;
+                await axios
+                  .post(urlApi, getLocation)
+                  .then((response) => {
+                    latitude = response.data.results[0].locations[0].latLng.lat;
+                    longitude =
+                      response.data.results[0].locations[0].latLng.lng;
+                  })
+                  .catch((error) => {
+                    console.error(error);
+                  });
 
-              Api.patch("https://passporter.herokuapp.com/set-ingresso", {
-                empresa: empresa._id,
-                image: evento.image,
-                name: evento.name,
-                description: evento.description,
-                data: datepicker.data,
-                hour: datepicker.hour,
-                cep: adressApi.cep,
-                bairro: adressApi.bairro,
-                rua: adressApi.rua,
-                cidade: adressApi.cidade,
-                estado: adressApi.estado,
-                ingresso: ingresso,
-                latitude: latitude,
-                longitude: longitude,
-              });
-            }}
-            className="btn btn-large btn-success"
-            id="btn-insert"
-          >
-            INSERIR EVENTO!
-          </button>
+                Api.patch("https://passporter.herokuapp.com/set-ingresso", {
+                  empresa: empresa._id,
+                  image: evento.image,
+                  name: evento.name,
+                  description: evento.description,
+                  data: datepicker.data,
+                  hour: datepicker.hour,
+                  cep: adressApi.cep,
+                  bairro: adressApi.bairro,
+                  rua: adressApi.rua,
+                  cidade: adressApi.cidade,
+                  estado: adressApi.estado,
+                  ingresso: ingresso,
+                  latitude: latitude,
+                  longitude: longitude,
+                });
+              }}
+              className="btn btn-large btn-success"
+              id="btn-insert-crud"
+            >
+              INSERIR EVENTO!
+            </button>
+          </div>
         </div>
       </div>
       <TableEvents empresa={empresa} />
