@@ -45,13 +45,23 @@ strong{
   display: flex;
   width: 100%;
   height: 5%;
-  background-color: rgb(241, 241, 241);
-  box-shadow: 1px 1px 20px rgba(0,0,0,0.2);
+  background-color: rgba(152,02,01,255);
+  box-shadow: 1px 1px 20px rgba(202,52,51,255);
   z-index:1000000;
 }
 
 #nav-link{
-  color:rgba(0,0,0,0.6);
+  color:white;
+}
+
+.passporter-logo-navbar{
+  width:87%;
+  max-height: 30%;
+}
+
+.logo-navbar{
+  width: 17%;
+  object-fit: contain;
 }
 
 /*Carousel component*/
@@ -210,6 +220,10 @@ strong{
 .ticket-list{
   margin-top: 5%;
   text-align: left;
+}
+.title-passporter-register{
+  margin-top: 7%;
+  margin-bottom: 5%;
 }
 #ticket-register-section{
   margin-left: 4%;
@@ -808,14 +822,14 @@ strong{
 
 /*Footer*/
 #footer-style{
-  background-color: rgb(241, 241, 241);
-  box-shadow: 1px 1px 20px rgba(0,0,0,0.2);
+  background-color: rgba(152,02,01,255);
+  box-shadow: 1px 1px 20px rgba(152,02,01,255);
   padding:50px;
   margin-top:7%;
-  color:rgba(0,0,0,0.6);
+  color:rgba(255,255,255,0.6);
 }
 .footer-title{
-  color:rgba(0,0,0,0.9);
+  color:white;
 }
 
 
@@ -936,6 +950,7 @@ strong{
     margin-top: 25%;
     margin-bottom: 25%;
   }
+
   #register-input{
     margin-top: 15%;
     margin-bottom: 15%;

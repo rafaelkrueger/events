@@ -39,7 +39,8 @@
     }
     #card-event-dashboard{
         margin: 10%;
-        min-width: 60%;
+        margin-left: 6.5%;
+        min-width: 75%;
         background-color: aliceblue;
 
     }

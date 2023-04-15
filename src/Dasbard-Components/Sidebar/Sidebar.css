@@ -7,8 +7,8 @@
     min-height: 100%;
     margin-top:3.5%;
     z-index: 2000;
-    position: fixed;    
-    
+    position: fixed;
+
 }
 
 .sidebar__title{
@@ -41,7 +41,7 @@
 }
 
 .sidebar__menu{
-    color:#3ea175;
+    color:rgba(202,52,51,255);
     font-size: 16px;
     margin-top: 16px;
     margin-bottom: 5px;
@@ -64,8 +64,8 @@
     border-radius: 3px;
 }
 .active_menu_link{
-    background-color: rgba(62,161,117,0.3);
-    color:#3ea175;
+
+    color:rgba(202,52,51,255);
 }
 
 .sidebar__link > a{
@@ -77,7 +77,7 @@
 .sidebar__link a:focus{
     padding:7px;
     border-radius: 3px;
-    background-color: rgba(62,161,117,0.3);
+    background-color: rgba(202,52,51,255);
 }
 
 .sidebar__logout{
@@ -113,7 +113,7 @@
         min-height: 100%;
         margin-top:15.5%;
         z-index: 100000000;
-        position: fixed;    
+        position: fixed;
     }
     .sidebar__title{
         display: inline;

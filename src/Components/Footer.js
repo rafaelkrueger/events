@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { MdKeyboardArrowDown } from "react-icons/md";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function Footer({ data }) {
   const notStyled = {
     textDecoration: "none",
-    color: "rgba(0,0,0,0.5)",
+    color: "white",
   };
 
   const colapsable = (id) => {
@@ -27,8 +27,8 @@ function Footer({ data }) {
         class="container-fluid"
         id="footer-style"
         style={{
-          backgroundColor: "rgba(255,255,255,0.3)",
-          color: "rgba(0,0,0,0.3)",
+          backgroundColor: "rgba(152,02,01,255)",
+          color: "white",
         }}
       >
         <div class="row" id="footer-content">
@@ -43,7 +43,7 @@ function Footer({ data }) {
                   marginTop: "-10%",
                   maxWidth: "100%",
                 }}
-                color="black"
+                color="white"
               />
             </div>
             <hr />
@@ -84,7 +84,7 @@ function Footer({ data }) {
             <h2 class="footer-title">Sobre Nós</h2>
             <MdKeyboardArrowDown
               onClick={(e) => colapsable(2)}
-              color="black"
+              color="white"
               size={35}
               style={{
                 marginLeft: "70.2%",
@@ -139,7 +139,7 @@ function Footer({ data }) {
           <div class="col">
             <h2 class="footer-title">Suporte</h2>
             <MdKeyboardArrowDown
-              color="black"
+              color="white"
               size={35}
               onClick={(e) => colapsable(3)}
               style={{ marginLeft: "70%", marginTop: "-20%" }}
@@ -156,7 +156,6 @@ function Footer({ data }) {
             </div>
           </div>
         </div>
-
         <br />
         <br />
       </div>

@@ -28,36 +28,6 @@ function Empresa({ newuser, setnewUser }) {
       <Navbar />
       <div className="empresa">
         <div className="col">
-          <img src={Ticket} id="image-empresa" />
-          <button
-            className="btn btn-large btn-danger"
-            id="start-btn"
-            onClick={() => {
-              console.log(newuser);
-              Api.post("/register-empresa", {
-                logo: "",
-                logo: newuser.logo,
-                name: newuser.name,
-                empresa: newuser.empresa,
-                user: newuser.user,
-                email: newuser.email,
-                cellphone: newuser.cellphone,
-                cpf: newuser.cpf,
-                password: newuser.password,
-                url: newuser.url,
-              })
-                .then((response) => {
-                  console.log(response);
-                })
-                .catch((err) => {
-                  console.log(err);
-                });
-            }}
-          >
-            COMEÇAR AGORA!
-          </button>
-        </div>
-        <div className="col">
           <h3 className="empresa-title">Ultimos passos para nós começarmos!</h3>
           <div class="input-group flex-nowrap">
             <span class="input-group-text" id="addon-wrapping">
@@ -100,6 +70,39 @@ function Empresa({ newuser, setnewUser }) {
               }}
             />
           </div>
+        </div>
+        <div className="col">
+          <img src={Ticket} id="image-empresa" />
+          <button
+            style={{
+              background: "rgb(35, 35, 144)",
+              color: "white",
+              width: "30%",
+            }}
+            className="btn btn-large"
+            id="start-btn"
+            onClick={() => {
+              Api.post("/register-empresa", {
+                logo: newuser.logo,
+                name: newuser.name,
+                empresa: newuser.empresa,
+                user: newuser.user,
+                email: newuser.email,
+                cellphone: newuser.cellphone,
+                cpf: newuser.cpf,
+                password: newuser.password,
+                url: newuser.url,
+              })
+                .then((response) => {
+                  console.log(response);
+                })
+                .catch((err) => {
+                  console.log(err);
+                });
+            }}
+          >
+            COMEÇAR AGORA!
+          </button>
         </div>
       </div>
 

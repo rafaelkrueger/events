@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
+
 import Navbar from "../Components/Navbar";
 import Footer from "../Components/Footer";
 import FundoRegister from "../Images/fundo-register.jpg";
@@ -21,8 +22,9 @@ function Register({ newuser, setnewUser }) {
       <div className="register">
         <div className="row">
           <div className="col" id="register-input">
-            <img src="..." alt="LOGO" />
-            <h5>Registre-se em poucos passos!</h5>
+            <h4 className="title-passporter-register">
+              Registre-se em poucos passos!
+            </h4>
             <br />
 
             <div class="input-group mb-3">
